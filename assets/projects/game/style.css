@@ -1,0 +1,808 @@
+/* ========================================================
+   NYAN DONUT CAT - ESPAÇO ARCO-ÍRIS
+   Estilos CSS3 Avançados, Glassmorphism e Efeitos Neon
+   ======================================================== */
+
+:root {
+  /* Cores Neon do Arco-Íris */
+  --neon-red: #ff1a53;
+  --neon-orange: #ff7a00;
+  --neon-yellow: #ffea00;
+  --neon-green: #00ff75;
+  --neon-cyan: #00e5ff;
+  --neon-violet: #a82eff;
+
+  /* Cores de Base Cósmicas */
+  --bg-deep-space: #070716;
+  --bg-nebula-blue: #0f1035;
+  --bg-nebula-purple: #1e0938;
+
+  /* Glassmorphism Design Tokens */
+  --glass-bg: rgba(18, 16, 42, 0.65);
+  --glass-bg-subtle: rgba(25, 22, 58, 0.45);
+  --glass-border: rgba(255, 255, 255, 0.16);
+  --glass-border-glow: rgba(0, 229, 255, 0.35);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+
+  /* Tipografia */
+  --font-display: 'Fredoka', 'Outfit', sans-serif;
+  --font-retro: 'Press Start 2P', monospace;
+  --font-ui: 'Outfit', sans-serif;
+}
+
+/* Reset Global e Configurações de Tela */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: var(--bg-deep-space);
+  font-family: var(--font-ui);
+  color: #ffffff;
+}
+
+/* ========================================================
+   FUNDO CÓSMICO EM CAMADAS E ESTRELAS CINTILANTES
+   ======================================================== */
+.cosmos-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 50%, #150f38 0%, #08061a 60%, #03020a 100%);
+}
+
+.nebula {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.35;
+  animation: floatNebula 24s ease-in-out infinite alternate;
+}
+
+.nebula-1 {
+  width: 600px;
+  height: 600px;
+  top: -150px;
+  right: -100px;
+  background: radial-gradient(circle, rgba(168, 46, 255, 0.6) 0%, rgba(0, 229, 255, 0.2) 60%, transparent 80%);
+}
+
+.nebula-2 {
+  width: 700px;
+  height: 700px;
+  bottom: -200px;
+  left: -150px;
+  background: radial-gradient(circle, rgba(255, 26, 83, 0.5) 0%, rgba(255, 122, 0, 0.2) 50%, transparent 80%);
+  animation-duration: 30s;
+  animation-direction: alternate-reverse;
+}
+
+/* Camadas de Estrelas em CSS Puro */
+.stars-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.stars-small {
+  background-image: 
+    radial-gradient(1px 1px at 20px 30px, #ffffff, transparent),
+    radial-gradient(1.5px 1.5px at 150px 80px, #e0f2fe, transparent),
+    radial-gradient(1px 1px at 280px 190px, #fbcfe8, transparent),
+    radial-gradient(1.5px 1.5px at 400px 320px, #fef08a, transparent),
+    radial-gradient(1px 1px at 530px 110px, #ffffff, transparent),
+    radial-gradient(1.5px 1.5px at 680px 250px, #c7d2fe, transparent),
+    radial-gradient(1px 1px at 820px 420px, #fbcfe8, transparent),
+    radial-gradient(1.5px 1.5px at 950px 140px, #ffffff, transparent),
+    radial-gradient(1px 1px at 1100px 300px, #fef08a, transparent),
+    radial-gradient(1.5px 1.5px at 1250px 70px, #c7d2fe, transparent);
+  background-size: 600px 600px;
+  animation: starTwinkle 3s ease-in-out infinite alternate;
+}
+
+.stars-medium {
+  background-image: 
+    radial-gradient(2px 2px at 80px 120px, #ffffff, transparent),
+    radial-gradient(2px 2px at 320px 240px, #00e5ff, transparent),
+    radial-gradient(2.5px 2.5px at 600px 80px, #ff1a53, transparent),
+    radial-gradient(2px 2px at 840px 380px, #00ff75, transparent),
+    radial-gradient(2px 2px at 1040px 190px, #ffea00, transparent);
+  background-size: 800px 800px;
+  animation: starTwinkle 4.5s ease-in-out infinite alternate-reverse;
+}
+
+.stars-large {
+  background-image: 
+    radial-gradient(3px 3px at 240px 450px, #ffffff, transparent),
+    radial-gradient(3px 3px at 750px 150px, #ffffff, transparent),
+    radial-gradient(3px 3px at 1150px 520px, #ffffff, transparent);
+  background-size: 1000px 1000px;
+  animation: starTwinkle 6s ease-in-out infinite alternate;
+}
+
+/* ========================================================
+   CONTAINER DO JOGO E CANVAS
+   ======================================================== */
+#game-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 1;
+}
+
+#game-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* ========================================================
+   COMPONENTES GLASSMORPHISM
+   ======================================================== */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  border-radius: 20px;
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.glass-inner {
+  background: var(--glass-bg-subtle);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+}
+
+/* ========================================================
+   HUD SUPERIOR ELEGANTE
+   ======================================================== */
+.hud-header {
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% - 32px);
+  max-width: 1120px;
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  z-index: 10;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.hud-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Título com Efeito Arco-Íris Animado via CSS */
+.rainbow-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.45rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  background: linear-gradient(
+    90deg,
+    #ff1a53,
+    #ff7a00,
+    #ffea00,
+    #00ff75,
+    #00e5ff,
+    #a82eff,
+    #ff1a53
+  );
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: rainbowShift 5s linear infinite;
+  filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.4));
+  white-space: nowrap;
+}
+
+.stats-group {
+  display: flex;
+  gap: 10px;
+}
+
+.stat-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 30px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #f1f5f9;
+  letter-spacing: 0.5px;
+  box-shadow: inset 0 1px 2px rgba(255, 255, 255, 0.1);
+}
+
+.stat-icon {
+  font-size: 1.1rem;
+}
+
+/* ========================================================
+   BARRA DE BADGES DAS 6 CORES DO ARCO-ÍRIS
+   ======================================================== */
+.rainbow-badges-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(0, 0, 0, 0.25);
+  padding: 6px 12px;
+  border-radius: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.color-badge {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px dashed rgba(255, 255, 255, 0.2);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.badge-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.25);
+  transition: all 0.3s ease;
+}
+
+/* Estilos de Badges Quando Desbloqueados */
+.color-badge.unlocked {
+  color: #ffffff;
+  border-style: solid;
+  transform: translateY(-2px);
+  animation: badgeUnlockPulse 0.6s ease-out;
+}
+
+/* Vermelho */
+.color-badge.badge-red.unlocked {
+  background: rgba(255, 26, 83, 0.2);
+  border-color: var(--neon-red);
+  box-shadow: 0 0 16px rgba(255, 26, 83, 0.65), inset 0 0 8px rgba(255, 26, 83, 0.3);
+}
+.color-badge.badge-red.unlocked .badge-dot {
+  background: var(--neon-red);
+  box-shadow: 0 0 8px var(--neon-red);
+}
+
+/* Laranja */
+.color-badge.badge-orange.unlocked {
+  background: rgba(255, 122, 0, 0.2);
+  border-color: var(--neon-orange);
+  box-shadow: 0 0 16px rgba(255, 122, 0, 0.65), inset 0 0 8px rgba(255, 122, 0, 0.3);
+}
+.color-badge.badge-orange.unlocked .badge-dot {
+  background: var(--neon-orange);
+  box-shadow: 0 0 8px var(--neon-orange);
+}
+
+/* Amarelo */
+.color-badge.badge-yellow.unlocked {
+  background: rgba(255, 234, 0, 0.2);
+  border-color: var(--neon-yellow);
+  box-shadow: 0 0 16px rgba(255, 234, 0, 0.65), inset 0 0 8px rgba(255, 234, 0, 0.3);
+}
+.color-badge.badge-yellow.unlocked .badge-dot {
+  background: var(--neon-yellow);
+  box-shadow: 0 0 8px var(--neon-yellow);
+}
+
+/* Verde */
+.color-badge.badge-green.unlocked {
+  background: rgba(0, 255, 117, 0.2);
+  border-color: var(--neon-green);
+  box-shadow: 0 0 16px rgba(0, 255, 117, 0.65), inset 0 0 8px rgba(0, 255, 117, 0.3);
+}
+.color-badge.badge-green.unlocked .badge-dot {
+  background: var(--neon-green);
+  box-shadow: 0 0 8px var(--neon-green);
+}
+
+/* Ciano */
+.color-badge.badge-cyan.unlocked {
+  background: rgba(0, 229, 255, 0.2);
+  border-color: var(--neon-cyan);
+  box-shadow: 0 0 16px rgba(0, 229, 255, 0.65), inset 0 0 8px rgba(0, 229, 255, 0.3);
+}
+.color-badge.badge-cyan.unlocked .badge-dot {
+  background: var(--neon-cyan);
+  box-shadow: 0 0 8px var(--neon-cyan);
+}
+
+/* Violeta */
+.color-badge.badge-violet.unlocked {
+  background: rgba(168, 46, 255, 0.2);
+  border-color: var(--neon-violet);
+  box-shadow: 0 0 16px rgba(168, 46, 255, 0.65), inset 0 0 8px rgba(168, 46, 255, 0.3);
+}
+.color-badge.badge-violet.unlocked .badge-dot {
+  background: var(--neon-violet);
+  box-shadow: 0 0 8px var(--neon-violet);
+}
+
+/* ========================================================
+   BOTÕES E ÍCONES
+   ======================================================== */
+.hud-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.icon-button {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  color: #fff;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: all 0.25s ease;
+}
+
+.icon-button:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: var(--neon-cyan);
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 0 15px rgba(0, 229, 255, 0.4);
+}
+
+.icon-button:active {
+  transform: translateY(0) scale(0.95);
+}
+
+/* ========================================================
+   DICA DE CONTROLES FLUTUANTE
+   ======================================================== */
+.hint-card {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 12px 28px;
+  text-align: center;
+  z-index: 8;
+  pointer-events: none;
+  animation: floatHint 4s ease-in-out infinite, fadeIn 0.8s ease-out;
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+.hint-card p {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #f8fafc;
+}
+
+.hint-card .sub-hint {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 4px;
+}
+
+/* ========================================================
+   CONTROLES TOUCH (MOBILE/TABLET)
+   ======================================================== */
+.touch-controls-container {
+  display: none;
+  position: absolute;
+  bottom: 24px;
+  right: 24px;
+  z-index: 15;
+}
+
+.dpad-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: 10px;
+  background: rgba(18, 16, 42, 0.8);
+  border-radius: 28px;
+  border: 1px solid rgba(0, 229, 255, 0.3);
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.2);
+}
+
+.dpad-middle-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dpad-btn {
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  touch-action: manipulation;
+  transition: all 0.15s ease;
+}
+
+.dpad-btn:active, .dpad-btn.active {
+  background: rgba(0, 229, 255, 0.35);
+  border-color: var(--neon-cyan);
+  box-shadow: 0 0 16px rgba(0, 229, 255, 0.7);
+  transform: scale(0.92);
+}
+
+.dpad-center {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  opacity: 0.8;
+}
+
+/* ========================================================
+   MODAIS (GLASSMORPHISM & ANIMAÇÕES)
+   ======================================================== */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(4, 3, 14, 0.75);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 20px;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.modal-overlay.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.modal-card {
+  max-width: 520px;
+  width: 100%;
+  padding: 36px 32px;
+  text-align: center;
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.7), 0 0 40px rgba(168, 46, 255, 0.3);
+  animation: modalPopIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.modal-title {
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #ffffff;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+}
+
+.modal-body {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #e2e8f0;
+  margin-bottom: 28px;
+}
+
+.help-list {
+  list-style: none;
+  text-align: left;
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.help-list li {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 10px 14px;
+  border-radius: 12px;
+  border-left: 3px solid var(--neon-cyan);
+  font-size: 0.95rem;
+}
+
+/* Botão Primário Glassmorphic com Efeito Neon */
+.glass-btn-primary {
+  width: 100%;
+  padding: 14px 28px;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #ffffff;
+  background: linear-gradient(135deg, rgba(255, 26, 83, 0.8) 0%, rgba(168, 46, 255, 0.85) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 40px;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(255, 26, 83, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.glass-btn-primary:hover {
+  background: linear-gradient(135deg, rgba(255, 26, 83, 1) 0%, rgba(168, 46, 255, 1) 100%);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 10px 30px rgba(255, 26, 83, 0.6), 0 0 25px rgba(168, 46, 255, 0.6);
+}
+
+.glass-btn-primary:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* ========================================================
+   MODAL DE VITÓRIA TRIUNFANTE
+   ======================================================== */
+.victory-card {
+  max-width: 560px;
+  border-color: rgba(255, 234, 0, 0.4);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8), 0 0 60px rgba(255, 234, 0, 0.35);
+}
+
+.victory-icon-halo {
+  width: 90px;
+  height: 90px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle, rgba(255, 234, 0, 0.3) 0%, transparent 70%);
+  border: 2px solid rgba(255, 234, 0, 0.6);
+  box-shadow: 0 0 30px rgba(255, 234, 0, 0.8);
+  animation: haloPulse 2s ease-in-out infinite;
+}
+
+.victory-cat-icon {
+  font-size: 2.5rem;
+  animation: floatCat 3s ease-in-out infinite;
+}
+
+.victory-title {
+  font-size: 2.2rem;
+  margin-bottom: 6px;
+}
+
+.victory-subtitle {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #f1f5f9;
+  margin-bottom: 24px;
+}
+
+.victory-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.stat-box {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.stat-box .stat-label {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.stat-box .stat-value {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.rainbow-text {
+  background: linear-gradient(90deg, #ff1a53, #ff7a00, #ffea00, #00ff75, #00e5ff, #a82eff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.victory-praise {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 28px;
+  line-height: 1.5;
+}
+
+.pulse-btn {
+  animation: buttonPulse 2s ease-in-out infinite;
+}
+
+/* ========================================================
+   ANIMAÇÕES CSS (@KEYFRAMES)
+   ======================================================== */
+@keyframes rainbowShift {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 300% 50%; }
+}
+
+@keyframes starTwinkle {
+  0% { opacity: 0.35; transform: scale(0.98); }
+  100% { opacity: 0.95; transform: scale(1.02); }
+}
+
+@keyframes floatNebula {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(30px, 40px) scale(1.08); }
+  100% { transform: translate(-20px, 20px) scale(0.95); }
+}
+
+@keyframes floatHint {
+  0%, 100% { transform: translate(-50%, 0); }
+  50% { transform: translate(-50%, -6px); }
+}
+
+@keyframes floatCat {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-5px) rotate(4deg); }
+}
+
+@keyframes haloPulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(255, 234, 0, 0.5); transform: scale(1); }
+  50% { box-shadow: 0 0 35px rgba(255, 234, 0, 0.9), 0 0 60px rgba(255, 122, 0, 0.5); transform: scale(1.05); }
+}
+
+@keyframes buttonPulse {
+  0%, 100% { box-shadow: 0 6px 20px rgba(255, 26, 83, 0.4); }
+  50% { box-shadow: 0 8px 30px rgba(0, 229, 255, 0.7), 0 0 25px rgba(168, 46, 255, 0.6); }
+}
+
+@keyframes badgeUnlockPulse {
+  0% { transform: scale(0.8); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+@keyframes modalPopIn {
+  0% { opacity: 0; transform: scale(0.85) translateY(20px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translate(-50%, 10px); }
+  to { opacity: 1; transform: translate(-50%, 0); }
+}
+
+/* ========================================================
+   RESPONSIVIDADE (MOBILE & TABLET)
+   ======================================================== */
+@media (max-width: 900px) {
+  .hud-header {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 10px 16px;
+    gap: 10px;
+  }
+
+  .hud-left {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .rainbow-badges-bar {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    gap: 6px;
+    padding: 6px 8px;
+  }
+
+  .color-badge .badge-label {
+    display: none; /* Em telas menores, exibe apenas os pontos brilhantes */
+  }
+
+  .color-badge {
+    padding: 6px 10px;
+  }
+
+  .touch-controls-container {
+    display: block; /* Habilita D-pad no mobile */
+  }
+
+  .hint-card {
+    bottom: 90px;
+    padding: 8px 16px;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .rainbow-title {
+    font-size: 1.15rem;
+  }
+
+  .stats-group .stat-badge {
+    padding: 4px 10px;
+    font-size: 0.85rem;
+  }
+
+  .modal-card {
+    padding: 24px 20px;
+  }
+
+  .victory-title {
+    font-size: 1.7rem;
+  }
+
+  .touch-controls-container {
+    bottom: 16px;
+    right: 16px;
+  }
+
+  .dpad-btn {
+    width: 46px;
+    height: 46px;
+  }
+}
+
+/* Touch devices detection */
+@media (pointer: coarse) {
+  .touch-controls-container {
+    display: block;
+  }
+}

@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620" width="100%" height="100%">
+  <defs>
+    <!-- Background Space Radial -->
+    <radialGradient id="spaceGlow1" cx="14%" cy="10%" r="55%">
+      <stop offset="0%" stop-color="#6647dd" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#08091b" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="spaceGlow2" cx="90%" cy="86%" r="55%">
+      <stop offset="0%" stop-color="#ff4e9a" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#08091b" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="donutGlow1" cx="50%" cy="50%" r="50%">
+      <stop offset="60%" stop-color="#f185b4"/>
+      <stop offset="100%" stop-color="#f185b4" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="donutGlow2" cx="50%" cy="50%" r="50%">
+      <stop offset="60%" stop-color="#7bd4d0"/>
+      <stop offset="100%" stop-color="#7bd4d0" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Deep Cosmic Arena -->
+  <rect width="900" height="620" fill="#08091c"/>
+  <rect width="900" height="620" fill="url(#spaceGlow1)"/>
+  <rect width="900" height="620" fill="url(#spaceGlow2)"/>
+
+  <!-- Starfield Grid -->
+  <g fill="#ffffff" opacity="0.4">
+    <circle cx="80" cy="90" r="1.5"/>
+    <circle cx="210" cy="50" r="1"/>
+    <circle cx="480" cy="80" r="2" opacity="0.7"/>
+    <circle cx="720" cy="110" r="1.5"/>
+    <circle cx="850" cy="70" r="1"/>
+    <circle cx="120" cy="480" r="1.5"/>
+    <circle cx="290" cy="540" r="2" opacity="0.8"/>
+    <circle cx="530" cy="490" r="1.5"/>
+    <circle cx="820" cy="560" r="1"/>
+    <circle cx="410" cy="380" r="1"/>
+  </g>
+
+  <!-- Gravity Aura & Orbit Trails -->
+  <!-- Planet 1: Donut (x:145, y:310, gravity: 116) -->
+  <circle cx="145" cy="310" r="116" fill="none" stroke="#f185b4" stroke-width="1" stroke-dasharray="4,6" opacity="0.3"/>
+  <!-- Planet 2: Muffin (x:350, y:135, gravity: 108) -->
+  <circle cx="350" cy="135" r="108" fill="none" stroke="#c88755" stroke-width="1" stroke-dasharray="4,6" opacity="0.3"/>
+  <!-- Planet 3: Brigadeiro (x:605, y:190, gravity: 124) -->
+  <circle cx="605" cy="190" r="124" fill="none" stroke="#ff5aa8" stroke-width="1" stroke-dasharray="4,6" opacity="0.35"/>
+  <!-- Planet 4: Donut Teal (x:765, y:440, gravity: 112) -->
+  <circle cx="765" cy="440" r="112" fill="none" stroke="#7bd4d0" stroke-width="1" stroke-dasharray="4,6" opacity="0.3"/>
+
+  <!-- Active Orbit Trajectory Line (Rainbow Tangent) -->
+  <path d="M 145 194 C 280 170, 310 135, 350 243 C 380 320, 520 280, 605 190" fill="none" stroke="url(#rainbowGrad)" stroke-width="3.5" opacity="0.85"/>
+  <linearGradient id="rainbowGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+    <stop offset="0%" stop-color="#ff304f"/>
+    <stop offset="20%" stop-color="#ff8b24"/>
+    <stop offset="40%" stop-color="#ffe03b"/>
+    <stop offset="60%" stop-color="#45e68a"/>
+    <stop offset="80%" stop-color="#42b9ff"/>
+    <stop offset="100%" stop-color="#d46cff"/>
+  </linearGradient>
+
+  <!-- Celestial Bodies (Planets) -->
+  <!-- Planet 1: Pink Donut -->
+  <g transform="translate(145, 310)">
+    <circle cx="0" cy="0" r="54" fill="#2d1733" stroke="#f185b4" stroke-width="3"/>
+    <circle cx="0" cy="0" r="46" fill="#f185b4"/>
+    <circle cx="0" cy="0" r="18" fill="#08091c"/>
+    <circle cx="-16" cy="-14" r="3" fill="#ffe03b"/>
+    <circle cx="12" cy="-18" r="3.5" fill="#42b9ff"/>
+    <circle cx="18" cy="12" r="3" fill="#ffffff"/>
+    <circle cx="-10" cy="18" r="3" fill="#45e68a"/>
+  </g>
+
+  <!-- Planet 2: Muffin -->
+  <g transform="translate(350, 135)">
+    <circle cx="0" cy="0" r="44" fill="#c88755" stroke="#ffe03b" stroke-width="2"/>
+    <circle cx="-10" cy="-8" r="5" fill="#4a2a16"/>
+    <circle cx="12" cy="-12" r="4" fill="#4a2a16"/>
+    <circle cx="4" cy="10" r="6" fill="#4a2a16"/>
+  </g>
+
+  <!-- Planet 3: Brigadeiro -->
+  <g transform="translate(605, 190)">
+    <circle cx="0" cy="0" r="56" fill="#42252c" stroke="#ff5aa8" stroke-width="2"/>
+    <circle cx="-18" cy="-14" r="3" fill="#ff5aa8"/>
+    <circle cx="14" cy="-22" r="3" fill="#ffe03b"/>
+    <circle cx="24" cy="6" r="3" fill="#42b9ff"/>
+    <circle cx="-8" cy="20" r="3" fill="#ffffff"/>
+  </g>
+
+  <!-- Planet 4: Teal Donut -->
+  <g transform="translate(765, 440)">
+    <circle cx="0" cy="0" r="48" fill="#7bd4d0" stroke="#67e8ff" stroke-width="2"/>
+    <circle cx="0" cy="0" r="16" fill="#08091c"/>
+    <circle cx="-12" cy="-10" r="3" fill="#ffffff"/>
+    <circle cx="10" cy="14" r="3" fill="#ff304f"/>
+  </g>
+
+  <!-- Spaceship: The Donut Cat (Cat Astronaut in Orbit) -->
+  <g transform="translate(390, 225) rotate(-35)">
+    <!-- Propulsion Flame -->
+    <path d="M -18 0 L -32 -6 L -26 0 L -32 6 Z" fill="#ff304f"/>
+    <path d="M -18 0 L -26 -3 L -22 0 L -26 3 Z" fill="#ffe03b"/>
+    <!-- Cat Pod Capsule -->
+    <ellipse cx="0" cy="0" rx="18" ry="14" fill="#ffffff" stroke="#ff5aa8" stroke-width="2"/>
+    <!-- Cat Ears -->
+    <polygon points="-4,-12 -12,-20 0,-14" fill="#ff5aa8"/>
+    <polygon points="6,-14 14,-20 10,-12" fill="#ff5aa8"/>
+    <!-- Visor -->
+    <ellipse cx="3" cy="-1" rx="9" ry="8" fill="#67e8ff"/>
+    <!-- Cat Eyes -->
+    <circle cx="2" cy="-2" r="1.5" fill="#08091c"/>
+    <circle cx="7" cy="-2" r="1.5" fill="#08091c"/>
+  </g>
+
+  <!-- HUD Overlay Details -->
+  <text x="35" y="45" font-family="'Courier New', monospace" font-size="12" font-weight="700" fill="#67e8ff" letter-spacing="3">DONUT ORBIT // GRAVITY PHYSICS SIMULATION</text>
+  <text x="35" y="585" font-family="'Courier New', monospace" font-size="11" fill="#a6a2c4">ORBITAL VECTORS • 7 RAINBOW FREQUENCIES • REALTIME CANVAS 2D</text>
+  <text x="740" y="585" font-family="'Courier New', monospace" font-size="11" font-weight="700" fill="#45e68a">FPS: 60 • STABLE</text>
+</svg>
+

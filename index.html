@@ -1,0 +1,694 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ana Fernandes — Thermal Interface</title>
+
+  <!-- Google Fonts: Space Grotesk, Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Estilos Autorais -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- Camada 0: Canvas do Efeito Térmico Fluido (Gallery Play Inspired) -->
+  <canvas id="thermal-canvas" aria-hidden="true"></canvas>
+
+  <!-- Camada 1: Grade Técnica de Alinhamento -->
+  <div class="thermal-grid" aria-hidden="true"></div>
+
+  <!-- Camada 2: Textura Sutil de Escaneamento Digital -->
+  <div class="scanline-overlay" aria-hidden="true"></div>
+
+  <!-- Camada 3: Conteúdo Estrutural -->
+  <div class="app-wrapper">
+
+    <!-- Top Telemetry (Cabeçalho de Dados & Identificação) -->
+    <header class="top-telemetry">
+      <div class="telemetry-left">
+        <span class="status-indicator">
+          <span class="status-dot"></span>
+          <span class="status-text">SYS: ACTIVE</span>
+        </span>
+        <span class="telemetry-dim">//</span>
+        <span>ANA FERNANDES</span>
+        <span class="telemetry-dim">•</span>
+        <span class="telemetry-tag">17 ANOS</span>
+      </div>
+
+      <!-- Navegação Rápida entre as 3 Seções -->
+      <nav class="telemetry-nav" aria-label="Navegação Principal">
+        <a href="#sobre-mim" class="nav-link">[01] Sobre Mim</a>
+        <a href="#projetos" class="nav-link">[02] Projetos</a>
+        <a href="#contato" class="nav-link">[03] Contato</a>
+      </nav>
+
+      <div class="telemetry-right">
+        <span>RAPHAEL DI SANTO (GARCIA)</span>
+        <span class="telemetry-dim">//</span>
+        <span id="live-clock">00:00:00</span>
+        <span class="telemetry-dim">BRT</span>
+      </div>
+    </header>
+
+    <!-- Seção Hero: Apresentação Experimental -->
+    <main class="hero-section">
+
+      <!-- Classificação de Protocolo & Áreas de Foco -->
+      <div class="hero-classification reveal-item">
+        <div class="classification-badge">
+          <span class="bracket">[</span>
+          <span data-cipher>THERMAL INTERFACE PROTOCOL</span>
+          <span class="bracket">]</span>
+        </div>
+        <span>DEV DE INTERFACES</span>
+        <span class="telemetry-dim">•</span>
+        <span>DESIGN UI/UX</span>
+        <span class="telemetry-dim">•</span>
+        <span>CÓDIGO CRIATIVO</span>
+      </div>
+
+      <!-- Tipografia Monumental Assimétrica -->
+      <div class="hero-title-wrapper reveal-item delay-1">
+        <h1 class="hero-title">
+          <span class="title-line title-line-1">ANA</span>
+          <span class="title-line title-line-2">FERNANDES</span>
+        </h1>
+      </div>
+
+      <!-- Grade Editorial Assimétrica: Manifesto, Especificações e Thermal Core Matrix -->
+      <div class="hero-editorial-grid">
+
+        <!-- Coluna 1: Declaração Editorial Autoral -->
+        <div class="statement-block reveal-item delay-2">
+          <p class="hero-lead">
+            Estudante de <strong>Tecnologia da Informação</strong> dedicada ao desenvolvimento de interfaces digitais,
+            design de experiência (UI/UX) e projetos interativos.
+          </p>
+          <p class="hero-sublead">
+            Conectando lógica, estruturas de código e sensibilidade visual na criação de produtos digitais autênticos e
+            expressivos.
+          </p>
+        </div>
+
+        <!-- Coluna 2: Dados e Competências Centrais Confirmadas -->
+        <div class="hero-specs reveal-item delay-3">
+          <div class="spec-item stagger-chip">
+            <span class="spec-label">Formação Atual</span>
+            <span class="spec-val">Técnico em TI Integrado — Raphael Di Santo</span>
+          </div>
+          <div class="spec-item stagger-chip">
+            <span class="spec-label">Idiomas</span>
+            <span class="spec-val highlight">Português (Nativo) • Inglês (Fluente)</span>
+          </div>
+          <div class="spec-item stagger-chip">
+            <span class="spec-label">Áreas de Estudo & Criação</span>
+            <span class="spec-val">HTML, CSS, Java, Python, Banco de Dados, Redes</span>
+          </div>
+          <div class="spec-item stagger-chip">
+            <span class="spec-label">Foco Criativo</span>
+            <span class="spec-val">Interfaces Futuristas, Microinterações & UX</span>
+          </div>
+        </div>
+
+        <!-- Coluna 3: Matriz Artístico-Tecnológica (Thermal Core Matrix) -->
+        <div class="hero-visual-slot reveal-item delay-4">
+          <div class="thermal-core-device tilt-3d glass-spotlight" title="Thermal Core Matrix — Dispositivo Óptico de Telemetria">
+            <!-- Cantoneiras Técnicas de Alinhamento -->
+            <span class="core-corner corner-tl"></span>
+            <span class="core-corner corner-tr"></span>
+            <span class="core-corner corner-bl"></span>
+            <span class="core-corner corner-br"></span>
+
+            <!-- Linha de Varredura Fina -->
+            <div class="core-scanner-line"></div>
+
+            <!-- Telemetria Superior -->
+            <div class="core-header-telemetry">
+              <span class="core-tag" data-cipher>[SYS_CORE // 01]</span>
+              <span class="core-val">TEMP: 312K</span>
+            </div>
+
+            <!-- Centro Óptico: Vórtice e Anéis Concêntricos -->
+            <div class="core-optical-center">
+              <div class="core-ring core-ring-outer"></div>
+              <div class="core-ring core-ring-mid"></div>
+              <div class="core-ring core-ring-inner"></div>
+              <div class="core-nucleus">
+                <span class="core-pulse-dot"></span>
+              </div>
+              <div class="core-coordinates-cross"></div>
+            </div>
+
+            <!-- Telemetria Inferior -->
+            <div class="core-footer-telemetry">
+              <span class="core-status">RAD: SPECTRUM</span>
+              <span class="core-freq" data-cipher>FREQ: 60Hz</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Barra de Ação & CTA Experimental -->
+      <div class="hero-action-row reveal-item delay-4">
+        <a href="#projetos" class="thermal-cta-btn magnetic-el">
+          <span class="cta-btn-text">EXPLORAR PROJETOS</span>
+          <span class="cta-badge">03 REPOSITÓRIOS</span>
+          <svg class="cta-arrow-icon" width="16" height="16" viewBox="0 0 16 16" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path d="M8 2V14M8 14L13 9M8 14L3 9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </a>
+
+        <div class="hero-interaction-tip">
+          <span class="cursor-pulse-icon"></span>
+          <span>Mova o cursor pela tela para interagir com a radiação térmica</span>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- Linha de Continuidade Visual -->
+    <div class="section-connector-line" aria-hidden="true"></div>
+
+    <!-- SEÇÃO 01: SOBRE MIM (Trajetória, Formação & Competências) -->
+    <section id="sobre-mim" class="about-section">
+
+      <!-- Cabeçalho da Seção -->
+      <div class="section-header reveal-item">
+        <div class="section-protocol-tag">
+          <span class="bracket">[</span>
+          <span data-cipher>01 // TRAJETÓRIA & IDENTIDADE</span>
+          <span class="bracket">]</span>
+        </div>
+        <h2 class="section-title">SOBRE <span>MIM</span></h2>
+        <p class="section-lead">
+          Conhecendo minha trajetória acadêmica, interesses em tecnologia e visão sobre desenvolvimento de interfaces e
+          design de experiência.
+        </p>
+      </div>
+
+      <!-- Grade Editorial Assimétrica -->
+      <div class="about-grid">
+
+        <!-- Coluna 1: Narrativa Autoral -->
+        <div class="about-narrative reveal-item delay-1">
+          <p class="about-paragraph">
+            Meu nome é <strong>Ana Fernandes</strong>, tenho 17 anos e sou estudante de Tecnologia da Informação,
+            atualmente no 2º ano do Ensino Médio integrado ao curso técnico em TI na <strong>Escola Raphael Di Santo
+              (unidade Garcia)</strong>.
+          </p>
+          <p class="about-paragraph">
+            Minha caminhada na tecnologia é impulsionada pela curiosidade de entender como sistemas funcionam por trás
+            dos bastidores e pela paixão de transformar essas linhas de código em <strong>interfaces digitais
+              intuitivas, agradáveis e impactantes</strong>.
+          </p>
+          <p class="about-paragraph">
+            Possuo <strong>Inglês fluente</strong>, o que me conecta diretamente com as melhores documentações globais,
+            padrões internacionais de acessibilidade e novas tendências do design digital contemporâneo.
+          </p>
+
+          <div class="about-highlight-box">
+            <p>
+              <strong>Visão de Futuro:</strong> Evoluir continuamente na interseção entre <em>engenharia de
+                software</em> e <em>design UI/UX</em>, desenvolvendo projetos com identidade visual autoral, rigor
+              técnico e foco na experiência real das pessoas.
+            </p>
+          </div>
+        </div>
+
+        <!-- Coluna 2: Fichas Técnicas de Conhecimentos & Formação -->
+        <div class="about-dossier reveal-item delay-2">
+
+          <!-- Card Formação -->
+          <div class="dossier-card glass-spotlight">
+            <div class="dossier-header">
+              <span>Formação Acadêmica</span>
+              <span>[EM CURSO]</span>
+            </div>
+            <div class="dossier-body">
+              <h4 class="dossier-item-title">Ensino Médio Integrado ao Técnico em TI</h4>
+              <p class="dossier-item-desc">Escola Raphael Di Santo — Unidade Garcia • 2º Ano</p>
+            </div>
+          </div>
+
+          <!-- Card Conhecimentos Confirmados -->
+          <div class="dossier-card glass-spotlight">
+            <div class="dossier-header">
+              <span>Conhecimentos Técnicos & Estudos</span>
+              <span>[CONFIRMADO]</span>
+            </div>
+            <div class="skills-tags-cluster">
+              <span class="skill-chip stagger-chip">HTML</span>
+              <span class="skill-chip stagger-chip">CSS</span>
+              <span class="skill-chip stagger-chip">Java</span>
+              <span class="skill-chip stagger-chip">Python</span>
+              <span class="skill-chip stagger-chip">Programação</span>
+              <span class="skill-chip stagger-chip">Banco de Dados</span>
+              <span class="skill-chip stagger-chip">Redes</span>
+              <span class="skill-chip stagger-chip">Manutenção de Computadores</span>
+            </div>
+          </div>
+
+          <!-- Card Interesses Criativos -->
+          <div class="dossier-card glass-spotlight">
+            <div class="dossier-header">
+              <span>Áreas de Interesse & Criação</span>
+              <span>[FOCO]</span>
+            </div>
+            <div class="skills-tags-cluster">
+              <span class="skill-chip focus stagger-chip">Design UI/UX</span>
+              <span class="skill-chip focus stagger-chip">Desenvolvimento de Interfaces</span>
+              <span class="skill-chip focus stagger-chip">Experiência do Usuário</span>
+              <span class="skill-chip focus stagger-chip">Design Digital</span>
+              <span class="skill-chip focus stagger-chip">Projetos Criativos</span>
+              <span class="skill-chip focus stagger-chip">Tecnologia</span>
+            </div>
+          </div>
+
+          <!-- Card Idiomas -->
+          <div class="dossier-card glass-spotlight">
+            <div class="dossier-header">
+              <span>Idiomas</span>
+              <span>[COMUNICAÇÃO]</span>
+            </div>
+            <div class="languages-row">
+              <div class="lang-box stagger-chip">
+                <div class="lang-title">Português</div>
+                <div class="lang-level">NATIVO</div>
+              </div>
+              <div class="lang-box stagger-chip">
+                <div class="lang-title">Inglês</div>
+                <div class="lang-level">FLUENTE</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- Linha de Continuidade Visual -->
+    <div class="section-connector-line" aria-hidden="true"></div>
+
+    <!-- SEÇÃO 02: PROJETOS AUTORAIS (Galeria Funcional) -->
+    <section id="projetos" class="projects-section">
+
+      <!-- Cabeçalho da Seção -->
+      <div class="section-header reveal-item">
+        <div class="section-protocol-tag">
+          <span class="bracket">[</span>
+          <span data-cipher>02 // REPOSITÓRIOS CONFIRMADOS</span>
+          <span class="bracket">]</span>
+        </div>
+        <h2 class="section-title">PROJETOS <span>AUTORAIS</span></h2>
+        <p class="section-lead">
+          Trabalhos reais desenvolvidos em código puro — explorando lógica de desenvolvimento web, simulação física
+          espacial em Canvas 2D e design editorial.
+        </p>
+      </div>
+
+      <!-- Galeria Assimétrica de Projetos -->
+      <div class="projects-gallery">
+
+        <!-- PROJETO 01: CLUTCHSKINS -->
+        <article class="project-card reveal-card tilt-3d glass-spotlight" data-project-id="PRJ-01">
+          <div class="project-visual-col">
+            <div class="visual-viewport">
+              <img src="assets/projects/Skin-Store/assets/img/Esports-CSGO-vs-Valorant-Article.webp"
+                alt="ClutchSkins - Vitrine de Skins CS2 e Valorant" class="main-preview-img">
+              <div class="visual-scanner-grid"></div>
+              <div class="visual-badge">ONLINE // CATÁLOGO DE SKINS</div>
+            </div>
+
+            <!-- Mini Vitrine de Amostras Reais -->
+            <div class="floating-subitems-strip">
+              <div class="subitem-thumb stagger-chip" title="AWP | Dragon Lore (CS2)">
+                <img src="assets/projects/Skin-Store/assets/img/cs-skin1.png" alt="AWP Dragon Lore">
+                <span>DRAGON LORE</span>
+              </div>
+              <div class="subitem-thumb stagger-chip" title="Karambit | Case Hardened (CS2)">
+                <img src="assets/projects/Skin-Store/assets/img/cs-skin5.png" alt="Karambit Case Hardened">
+                <span>KARAMBIT</span>
+              </div>
+              <div class="subitem-thumb stagger-chip" title="Karambit | Reaver (Valorant)">
+                <img src="assets/projects/Skin-Store/assets/img/v-skins4.webp" alt="Karambit Reaver">
+                <span>REAVER</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="project-info-col">
+            <div class="project-meta-header">
+              <span class="project-id" data-cipher>PRJ-01</span>
+              <span>ANO: 2026</span>
+              <span>STATUS: CONCLUÍDO</span>
+            </div>
+
+            <span class="project-category">Aplicação Web // E-Commerce & Games</span>
+            <h3 class="project-name">ClutchSkins — Skin Store</h3>
+            <p class="project-description">
+              Plataforma temática para exibição, filtragem e catálogo de skins colecionáveis de alta raridade de
+              <em>Counter-Strike 2</em> e <em>Valorant</em>, com sistema interativo de cadastro e login.
+            </p>
+
+            <div class="project-features-list">
+              <div class="feature-point">
+                <span class="feature-marker">▸</span>
+                <span>Autenticação dupla com alternância dinâmica entre Login e Cadastro via JS</span>
+              </div>
+              <div class="feature-point">
+                <span class="feature-marker">▸</span>
+                <span>Vitrine categorizada por jogos de eSports (Counter-Strike e Valorant)</span>
+              </div>
+              <div class="feature-point">
+                <span class="feature-marker">▸</span>
+                <span>Selos de raridade (Oculta, Sigilosa, Extraordinário, Exclusivo, Ultra)</span>
+              </div>
+            </div>
+
+            <div class="tech-stack-row">
+              <span class="tech-tag primary stagger-chip">HTML5 Semântico</span>
+              <span class="tech-tag primary stagger-chip">CSS3 Dark UI</span>
+              <span class="tech-tag primary stagger-chip">JavaScript Puro</span>
+              <span class="tech-tag stagger-chip">Manipulação de DOM</span>
+            </div>
+
+            <div class="project-actions">
+              <a href="assets/projects/Skin-Store/home.html" target="_blank" rel="noopener noreferrer"
+                class="btn-primary-action magnetic-el">
+                <span>DEMONSTRAÇÃO AO VIVO</span>
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                  <path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </a>
+              <a href="https://github.com/analufernandess/Skin-Store" target="_blank" rel="noopener noreferrer"
+                class="btn-secondary-action magnetic-el">
+                <span>REPOSITÓRIO GITHUB</span>
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                  <path d="M6 3H3V13H13V10M10 3H13V6M8 8L13 3" stroke="currentColor" stroke-width="1.6"
+                    stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- PROJETO 02: DONUT ORBIT -->
+        <article class="project-card inverted reveal-card tilt-3d glass-spotlight" data-project-id="PRJ-02">
+          <div class="project-visual-col">
+            <div class="visual-viewport">
+              <img src="assets/projects/game/donut-orbit-preview.svg"
+                alt="Donut Orbit - Jogo com Física Gravitacional e Espaço 2D" class="main-preview-img">
+              <div class="visual-scanner-grid"></div>
+              <div class="visual-badge">CANVAS 2D // MOTOR DE FÍSICA</div>
+            </div>
+          </div>
+
+          <div class="project-info-col">
+            <div class="project-meta-header">
+              <span class="project-id" data-cipher>PRJ-02</span>
+              <span>ANO: 2026</span>
+              <span>STATUS: JOGÁVEL • 60 FPS</span>
+            </div>
+
+            <span class="project-category">Game Dev // Física Gravitacional & Canvas</span>
+            <h3 class="project-name">Donut Orbit — Physics Edition</h3>
+            <p class="project-description">
+              Jogo 2D interativo com simulação de física gravitacional em tempo real. O jogador controla uma espaçonave
+              felina em torno de planetas cósmicos, utilizando impulsos tangenciais para coletar o espectro de 7 cores
+              do arco-íris.
+            </p>
+
+            <div class="project-features-list">
+              <div class="feature-point">
+                <span class="feature-marker">▸</span>
+                <span>Cálculo vetorial em tempo real de atração gravitacional e dinâmica de órbitas</span>
+              </div>
+              <div class="feature-point">
+                <span class="feature-marker">▸</span>
+                <span>Mecânica de lançamento na tangente via clique ou barra de espaço</span>
+              </div>
+              <div class="feature-point">
+                <span class="feature-marker">▸</span>
+                <span>Inversão do sentido orbital em tempo real (teclas A/D ou setas)</span>
+              </div>
+              <div class="feature-point">
+                <span class="feature-marker">▸</span>
+                <span>HUD de telemetria com contador, barra de combustível e Web Audio API</span>
+              </div>
+            </div>
+
+            <div class="tech-stack-row">
+              <span class="tech-tag primary stagger-chip">HTML5 Canvas</span>
+              <span class="tech-tag primary stagger-chip">Motor Vetorial 2D</span>
+              <span class="tech-tag primary stagger-chip">Web Audio API</span>
+              <span class="tech-tag stagger-chip">JavaScript Puro</span>
+              <span class="tech-tag stagger-chip">Glassmorphism</span>
+            </div>
+
+            <div class="project-actions">
+              <a href="assets/projects/game/index.html" target="_blank" rel="noopener noreferrer"
+                class="btn-primary-action magnetic-el">
+                <span>JOGAR AGORA (DEMO AO VIVO)</span>
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                  <path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </a>
+              <a href="https://github.com/analufernandess/game" target="_blank" rel="noopener noreferrer"
+                class="btn-secondary-action magnetic-el">
+                <span>REPOSITÓRIO GITHUB</span>
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                  <path d="M6 3H3V13H13V10M10 3H13V6M8 8L13 3" stroke="currentColor" stroke-width="1.6"
+                    stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- PROJETO 03: NATIRUTS -->
+        <article class="project-card reveal-card tilt-3d glass-spotlight" data-project-id="PRJ-03">
+          <div class="project-visual-col">
+            <div class="visual-viewport"
+              style="background: #0f1c14; padding: 2.5rem; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+              <img src="assets/projects/NATIRUTS/img/logo-natiruts.png" alt="Natiruts Logotipo Oficial"
+                style="max-width: 200px; height: auto; margin-bottom: 1.5rem; filter: drop-shadow(0 0 15px rgba(0, 177, 129, 0.4));">
+              <div class="floating-subitems-strip" style="width: 100%;">
+                <div class="subitem-thumb stagger-chip" style="border-color: rgba(0, 177, 129, 0.3);">
+                  <img src="assets/projects/NATIRUTS/img/luis-mauricio.jpg" alt="Luís Maurício"
+                    style="border-radius: 50%; width: 44px; height: 44px; object-fit: cover;">
+                  <span>LUÍS MAURÍCIO</span>
+                </div>
+                <div class="subitem-thumb stagger-chip" style="border-color: rgba(0, 177, 129, 0.3);">
+                  <img src="assets/projects/NATIRUTS/img/alexandre-carlo.jpeg" alt="Alexandre Carlo"
+                    style="border-radius: 50%; width: 44px; height: 44px; object-fit: cover;">
+                  <span>ALEXANDRE CARLO</span>
+                </div>
+              </div>
+              <div class="visual-scanner-grid"></div>
+              <div class="visual-badge" style="border-color: rgba(0, 177, 129, 0.4); color: var(--thermal-green);">
+                EDITORIAL // TRIBUTO MUSICAL</div>
+            </div>
+          </div>
+
+          <div class="project-info-col">
+            <div class="project-meta-header">
+              <span class="project-id" data-cipher>PRJ-03</span>
+              <span>ANO: 2026</span>
+              <span>STATUS: ONLINE</span>
+            </div>
+
+            <span class="project-category">Website Editorial // Homenagem & Música</span>
+            <h3 class="project-name">NATIRUTS — Tributo & Legado</h3>
+            <p class="project-description">
+              Página editorial moderna em tributo à trajetória e história dos integrantes fundadores da banda brasileira
+              Natiruts, explorando a identidade visual verde reggae e diagramação biográfica.
+            </p>
+
+            <div class="project-features-list">
+              <div class="feature-point">
+                <span class="feature-marker">▸</span>
+                <span>Identidade visual temática com o logotipo oficial e paleta verde</span>
+              </div>
+              <div class="feature-point">
+                <span class="feature-marker">▸</span>
+                <span>Artigos biográficos detalhados sobre Luís Maurício e Alexandre Carlo</span>
+              </div>
+              <div class="feature-point">
+                <span class="feature-marker">▸</span>
+                <span>Citações autorais sobre consciência social, música e esperança</span>
+              </div>
+              <div class="feature-point">
+                <span class="feature-marker">▸</span>
+                <span>Botões integrados para os perfis oficiais dos integrantes no Instagram</span>
+              </div>
+            </div>
+
+            <div class="tech-stack-row">
+              <span class="tech-tag primary stagger-chip">HTML5 Semântico</span>
+              <span class="tech-tag primary stagger-chip">CSS3 Autoral</span>
+              <span class="tech-tag primary stagger-chip">Design Editorial</span>
+              <span class="tech-tag stagger-chip">Reggae Aesthetic</span>
+            </div>
+
+            <div class="project-actions">
+              <a href="assets/projects/NATIRUTS/index.html" target="_blank" rel="noopener noreferrer"
+                class="btn-primary-action magnetic-el">
+                <span>ACESSAR PÁGINA (DEMO AO VIVO)</span>
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                  <path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </a>
+              <a href="https://github.com/AnaFernandes10/NATIRUTS" target="_blank" rel="noopener noreferrer"
+                class="btn-secondary-action magnetic-el">
+                <span>REPOSITÓRIO GITHUB</span>
+                <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
+                  <path d="M6 3H3V13H13V10M10 3H13V6M8 8L13 3" stroke="currentColor" stroke-width="1.6"
+                    stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+    </section>
+
+    <!-- Linha de Continuidade Visual -->
+    <div class="section-connector-line" aria-hidden="true"></div>
+
+    <!-- SEÇÃO 03: CONTATO (Gallery Play Inspired Thermal Interface) -->
+    <section id="contato" class="contact-section">
+
+      <!-- Cabeçalho da Seção -->
+      <div class="section-header reveal-item">
+        <div class="section-protocol-tag">
+          <span class="bracket">[</span>
+          <span data-cipher>03 // COMUNICAÇÃO & CONEXÃO</span>
+          <span class="bracket">]</span>
+        </div>
+        <h2 class="section-title">VAMOS CRIAR <span>ALGO NOVO?</span></h2>
+        <p class="section-lead">
+          Aberta para trocas de ideias sobre desenvolvimento de interfaces, design UI/UX, projetos colaborativos e novas
+          oportunidades na área de tecnologia.
+        </p>
+      </div>
+
+      <!-- Card Central Térmico de Contato -->
+      <div class="contact-card-thermal reveal-card tilt-3d glass-spotlight">
+        <div class="contact-content-grid">
+
+          <!-- Coluna 1: Convite & E-mail Principal -->
+          <div class="contact-left reveal-item delay-1">
+            <p class="contact-lead">
+              Tem um projeto em mente, uma oportunidade na área de TI ou quer apenas conversar sobre tecnologia e
+              design? <strong>Entre em contato diretamente comigo.</strong>
+            </p>
+
+            <!-- Caixa de E-mail Interativa -->
+            <div class="email-display-box">
+              <a href="mailto:luhh90740@gmail.com" class="email-address-text" title="Clique para enviar um e-mail">
+                luhh90740@gmail.com
+              </a>
+              <button type="button" id="copy-email-btn" class="copy-email-btn magnetic-el"
+                title="Copiar endereço de e-mail">
+                COPIAR E-MAIL
+              </button>
+              <div id="copy-feedback" class="copy-feedback-msg" role="status" aria-live="polite">
+                [✓ E-MAIL COPIADO COM SUCESSO]
+              </div>
+            </div>
+
+            <!-- Indicador de Status & Disponibilidade -->
+            <div class="contact-status-card">
+              <span class="status-dot"></span>
+              <span>STATUS: DISPONÍVEL PARA PROJETOS & APRENDIZADO CONTÍNUO • FUSO: BRT (UTC-3)</span>
+            </div>
+          </div>
+
+          <!-- Coluna 2: Canais Oficiais & Repositórios -->
+          <div class="contact-right reveal-item delay-2">
+
+            <!-- GitHub Principal -->
+            <a href="https://github.com/analufernandess" target="_blank" rel="noopener noreferrer"
+              class="contact-channel-card stagger-chip glass-spotlight">
+              <div class="channel-info-group">
+                <span class="channel-tag">Repositório & Código</span>
+                <span class="channel-handle">github.com/analufernandess</span>
+              </div>
+              <svg class="channel-icon-arrow" width="18" height="18" viewBox="0 0 16 16" fill="none">
+                <path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </a>
+
+            <!-- GitHub Secundário / Acadêmico -->
+            <a href="https://github.com/AnaFernandes10" target="_blank" rel="noopener noreferrer"
+              class="contact-channel-card stagger-chip glass-spotlight">
+              <div class="channel-info-group">
+                <span class="channel-tag">Projetos Acadêmicos</span>
+                <span class="channel-handle">github.com/AnaFernandes10</span>
+              </div>
+              <svg class="channel-icon-arrow" width="18" height="18" viewBox="0 0 16 16" fill="none">
+                <path d="M4 12L12 4M12 4H6M12 4V10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </a>
+
+            <!-- Fuso Horário & Localização -->
+            <div class="contact-channel-card stagger-chip glass-spotlight" style="cursor: default;">
+              <div class="channel-info-group">
+                <span class="channel-tag">Localização</span>
+                <span class="channel-handle">Campinas, SP — Brasil</span>
+              </div>
+              <span
+                style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--thermal-cyan);">[ONLINE]</span>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Bottom Telemetry (Rodapé Técnico e Espectro de Cores) -->
+    <footer class="bottom-telemetry reveal-fade">
+      <div class="telemetry-item">
+        <span>CONCEITO VISUAL: THERMAL INTERFACE</span>
+      </div>
+
+      <div class="thermal-spectrum-bar">
+        <span class="spectrum-label">GRADIENTE TÉRMICO:</span>
+        <div class="spectrum-gradient" title="Espectro Térmico: Azul -> Ciano -> Verde -> Amarelo -> Vermelho"></div>
+      </div>
+
+      <div class="telemetry-item">
+        <span>VANILLA JS • CSS3 AUTORAL • HTML5 SEMÂNTICO</span>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- Scripts: Motor Térmico e Telemetria -->
+  <script src="js/script.js"></script>
+</body>
+
+</html>
